@@ -419,6 +419,7 @@
 }
 .header__search {
     width: 40%;
+    margin: auto 0;
 }
 
 .search-icon {
