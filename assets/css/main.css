@@ -389,6 +389,8 @@
 
 .header-with-search {
     height: var(--header-with-search-height);
+    display: flex;
+    justify-content: space-between;
 }
 
 .header__logo {
@@ -414,6 +416,22 @@
     align-items: center;
     line-height: 1.2em;
 
+}
+.header__search {
+    width: 40%;
+}
+
+.search-icon {
+    color: var(--white-color);
+    font-size: 1.9em;
+    padding: 0 4px;
+}
+
+.search-input {
+    height: 30px;
+    width: 80%;
+    font-size: 1.6em;
+    border-radius: 10px ;
 }
 
 
