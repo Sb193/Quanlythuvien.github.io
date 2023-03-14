@@ -4,21 +4,257 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sơn Bắc Fashion</title>
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
-    <!-- Navbar header  -->
-    <div class="header">
-        
-    </div>
-    <!-- Container -->
-    <div class="container">
+    <div class="app">
+        <div class="header">
+            <div class="grid">
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--qr header__navbar-item--separate">
+                            Thư viện trường THPT Phú Bình
 
+                            <div class="header__qr">
+                                <img src="./assets/img/QR_code.png" alt="QR Code" class="header__qr-img">
+                                <div class="header__qr-apps">
+                                    <img src="./assets/img/qr_ggplay.jpg" alt="Google Play" class="header__qr-apps--img">
+                                    <img src="./assets/img/qr_appstore.jpg" alt="Appstore" class="header__qr-apps--img">
+                                </div>
+                            </div>
+                        </li>
+    
+                        <li class="header__navbar-item">
+                            <span class="header__navbar-title--no-pointer">Kết nối</span>
+
+                            <a href="" class="header__navbar-icon-link">
+                                <i class="header__navbar-icon fab fa-facebook"></i>
+                            </a>
+
+                            <a href="" class="header__navbar-icon-link">
+                                <i class="header__navbar-icon fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+    
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--has-notify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fas fa-bell"></i>
+                                Thông báo
+                            </a>
+                            <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông báo mới nhận</h3>
+                                </header>
+                                <ul class="header__notify-list">
+                                    <li class="header__notify-item">
+                                        <a href="header__notify-link" class="header__notify-link">
+                                            <img src="https://www.leagueoflegends.com/static/open-graph-2e582ae9fae8b0b396ca46ff21fd47a8.jpg" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Liên minh huyền thoại</span>
+                                                <span class="header__notify-content">Thắng bại tại kỹ năng</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="header__notify-item">
+                                        <a href="header__notify-link" class="header__notify-link">
+                                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_616x353.jpg?t=1666237243" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Dota 2</span>
+                                                <span class="header__notify-content">Siêu phẩm 2023</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a href="header__notify-link" class="header__notify-link">
+                                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_616x353.jpg?t=1666237243" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Dota 2</span>
+                                                <span class="header__notify-content">Siêu phẩm 2023</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a href="header__notify-link" class="header__notify-link">
+                                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_616x353.jpg?t=1666237243" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Dota 2</span>
+                                                <span class="header__notify-content">Siêu phẩm 2023</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a href="header__notify-link" class="header__notify-link">
+                                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_616x353.jpg?t=1666237243" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Dota 2</span>
+                                                <span class="header__notify-content">Siêu phẩm 2023</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <footer class="header__notify-footer">
+                                    <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                </footer>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item--has-notify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-question-circle"></i>
+                                Trợ giúp
+                            </a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
+                            Đăng ký
+                        </li>
+                        <li class="header__navbar-item header__navbar-item--strong">
+                            Đăng nhập
+                        </li>
+                    </ul>
+    
+                </nav>
+                <!-- Header with search -->
+                <div class="header-with-search">
+                    <div class="header__logo">
+                        <img src="./assets/img/logo.png" alt="" class="header__logo-img">
+                    </div>
+
+                    <div class="header__search">
+
+                    </div>
+
+                    <div class="header__cart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            
+        </div>
+
+        <div class="footer">
+
+        </div>
     </div>
 
-    <!-- footer -->
-    <div class="footer">
+    <!-- Modal layout -->
+    <!-- <div class="modal">
+        <div class="modal__overlay">
+            
+        </div>
+        <div class="modal__body"> -->
+            
+            <!-- Register form -->
+            <!-- <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>  
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đã đồng ý với Sơn Bắc về
+                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
 
-    </div>
+                    <div class="auth-form__controls">
+                        <button class="btn auth-form__controls--btn-back btn--normal">TRỞ LẠI</button>
+                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class="btn btn--size-s btn--with-icon auth-form__socials-facebook">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Faceboook
+                        </span>
+                    </a>
+
+                    <a href="" class="btn btn--size-s btn--with-icon auth-form__socials-google">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Google
+                        </span>
+                    </a>
+                </div>
+            </div> -->
+
+            <!-- Login form -->
+            <!-- <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>  
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-sparate"></span>
+                            <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn auth-form__controls--btn-back btn--normal">TRỞ LẠI</button>
+                        <button class="btn btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class="btn btn--size-s btn--with-icon auth-form__socials-facebook">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Faceboook
+                        </span>
+                    </a>
+
+                    <a href="" class="btn btn--size-s btn--with-icon auth-form__socials-google">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Google
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div> -->
 </body>
 </html>
