@@ -2,7 +2,7 @@
     height: var(--header-height);
     width: 100%;
     background-color: var(--blue-color);
-    position: fixed;
+    /* position: fixed; */
 }
 
 
@@ -217,9 +217,4 @@
 
 }
 
-.container__category{
-    width: 100%;
-    height: 1000px;
-    grid-template-columns: 20% 40% 20%;
-    
-}
+

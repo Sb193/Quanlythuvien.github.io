@@ -1,0 +1,27 @@
+.container {
+    margin-top: 0.5em;
+    width: 100%;
+
+}
+
+.container__content {
+    display: flex;
+}
+
+.container__category {
+    border: 2px solid var(--border-color);
+    width: 20%;
+}
+
+.category__list {
+    padding: 0;
+    padding-left: 2em;
+    list-style: none;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.5em;
+}
+
+.category__item {
+    margin-bottom: 1em;
+}
