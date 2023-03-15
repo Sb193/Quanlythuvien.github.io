@@ -315,9 +315,10 @@
 }
 
 .auth-form__controls {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    margin-bottom: 40px;
 }
 
 .auth-form__controls--btn-back {
