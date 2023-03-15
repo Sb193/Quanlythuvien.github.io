@@ -391,6 +391,7 @@
     height: var(--header-with-search-height);
     display: flex;
     justify-content: space-between;
+    
 }
 
 .header__logo {

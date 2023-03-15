@@ -7,7 +7,7 @@
     --blue-color: #006cb5;
 
     --navbar-height: 34px;
-    --header-height: 120px;
+    --header-height: 80px;
     --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
     
 }
