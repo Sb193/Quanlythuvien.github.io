@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #ee4d2d;
+    --primary-color: #006cb5;
     --white-color: #fff;
     --black-color: #000;
     --text-color: #333;
@@ -89,7 +89,7 @@ html {
 
 .btn.btn--primary {
     color: var(--white-color);
-    background-color: var(--primary-color);
+    background-color: var(--blue-color);
 }
 
 .btn.btn--disabled {
