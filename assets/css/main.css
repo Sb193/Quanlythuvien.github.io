@@ -435,6 +435,12 @@
     border-radius: 10px ;
 }
 
+.search-input:focus {
+    border-color: #777;
+
+}
+
+
 
 
 
