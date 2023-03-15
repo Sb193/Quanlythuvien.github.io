@@ -8,7 +8,7 @@
 
     --navbar-height: 34px;
     --header-height: 80px;
-    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    --header-with-search-height: var(--header-height);
     
 }
 

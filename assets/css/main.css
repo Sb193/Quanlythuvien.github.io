@@ -391,7 +391,7 @@
     height: var(--header-with-search-height);
     display: flex;
     justify-content: space-between;
-    
+    align-items: center;
 }
 
 .header__logo {
@@ -433,17 +433,11 @@
     height: 30px;
     width: 80%;
     font-size: 1.6em;
-    border-radius: 10px ;
+    border-radius: 4px;
+    margin: 0 2em 0 2em;
 }
 
 .search-input:focus {
     border-color: #777;
 
 }
-
-
-
-
-
-
-
