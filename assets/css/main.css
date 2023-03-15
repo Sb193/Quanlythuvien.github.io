@@ -418,8 +418,8 @@
 
 }
 .header__search {
-    width: 40%;
-    margin: auto 0;
+    width: 60%;
+    margin: auto -3em auto auto;
 }
 
 .search-icon {
