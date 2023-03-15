@@ -53,7 +53,7 @@
     </div>
 
     <!-- Modal layout -->
-    <div class="modal">
+    <div class="modal" id="login__form">
         <div class="modal__overlay">
             
         </div>
@@ -69,7 +69,7 @@
                     </div>  
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" id="usename" placeholder="Email của bạn">
+                            <input type="text" class="auth-form__input" id="username" placeholder="Email của bạn">
                         </div>
                         <div class="auth-form__group">
                             <input type="password" class="auth-form__input" id="password" placeholder="Mật khẩu của bạn">
@@ -88,8 +88,10 @@
                         <button class="btn btn--primary" id="login_button">ĐĂNG NHẬP</button>
                         <script>
                             var login_button = document.getElementById("login_button").addEventListener("click", function(){
-                                
-                                
+                                let username = document.getElementById("username").value;
+                                let password = document.getElementById("password").value;
+                                console.log(username , password);
+                                let formlogin = document.getElementById("login__form").style.display = "none";
                             });
                         </script>
                     </div>
