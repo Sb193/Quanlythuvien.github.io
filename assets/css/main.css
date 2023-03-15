@@ -434,7 +434,8 @@
     width: 80%;
     font-size: 1.6em;
     border-radius: 4px;
-    margin: 0 2em 0 2em;
+    margin: 0;
+    margin-left: 3em;
 }
 
 .search-input:focus {
