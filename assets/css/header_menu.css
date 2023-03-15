@@ -1,8 +1,14 @@
 .header__menu{
+    position: relative;
     margin: auto 3em;
+
 }
 
 .menu_icon{
     font-size: 3em;
     color: var(--white-color);
+}
+
+.menu_icon:hover{   
+    color: var(--border-color);
 }
