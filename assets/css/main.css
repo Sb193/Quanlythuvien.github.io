@@ -204,12 +204,13 @@
 }
 
 .search-input {
-    height: 30px;
+    height: 40px;
     width: 80%;
     font-size: 1.6em;
-    border-radius: 4px;
+    border-radius: 3em;
     margin: 0;
     margin-left: 3em;
+    padding: 0 1em 0 2em;
 }
 
 .search-input:focus {
