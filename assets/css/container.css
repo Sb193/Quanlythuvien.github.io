@@ -44,8 +44,9 @@
     border: 1px solid var(--border-color); */
     background: #f6f8fc;
     width: 80%;
-    height: auto;
+    
     position: relative;
+    overflow: auto;
 
 
 }
@@ -61,6 +62,7 @@
     font-size: 1.6em;
     font-weight: 600;
     padding: 0 10px 0 10px;
+    background-color:  #f6f8fc;
 }
 
 .header__book-item-Check {
@@ -127,6 +129,7 @@
     align-items: center;
     height: 5em;
     margin-top: 0.2em;
+    overflow: hidden;
 }
 
 .book__item:hover {
@@ -148,6 +151,7 @@
     margin: 1%;
     font-size: 1.6em;
     align-items: center;
+    overflow: hidden;
 
 }
 
@@ -156,18 +160,21 @@
     margin: 1%;
     font-size: 1.6em;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .book__author {
     width: 13%;
     margin: 1%;
     font-size: 1.6em;
+    overflow: hidden;
 }
 
 .book__cate {
     width: 18%;
     margin: 1%;
     font-size: 1.6em;
+    overflow: hidden;
 }
 
 .book__year {
@@ -176,6 +183,7 @@
     font-size: 1.6em;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .book__menu {

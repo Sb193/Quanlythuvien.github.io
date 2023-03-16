@@ -56,7 +56,7 @@
                 <div class="item3 item"></div>
             </div> -->
 
-            <div class="grid container__content">
+            <div class="grid container__content" >
                 <div class="container__category">
                     <ul class="category__list">
                         <li class="category__item">Quản lý sách</li>
@@ -98,6 +98,18 @@
                             Thao tác
                         </li>
                     </ul>
+                    <div id="container__list">
+                        <script>
+                            let hight = screen.availHeight;
+                            hight = hight - 190;
+                            let container__list = document.getElementById("container__list");
+                            console.log(hight);
+                            container__list.style.height = hight.toString() + "px";
+                            container__list.style.overflow = "auto";
+                        </script>
+
+
+                    
                     <ul class="book__list">
                         <li class="book__item">
                             <input type="checkbox" class="check__item-book" id="book1">
@@ -308,9 +320,10 @@
                             </ul>
                         </li>
 
-
-
+                    
                     </ul>
+                    </div>
+                
                 </div>
             </div>
         </div>
