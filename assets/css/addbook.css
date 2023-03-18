@@ -46,24 +46,10 @@
     justify-content: space-evenly;
 }
 
-.btn{   
-    /* position: absolute;  */
-    margin-left: 40%;
-    margin-top: 0.2em;
-    height: 50px;
-    width: 200px;
-    font-size: 3em;
-    border: 1px solid var(--border-color);
-    color: var(--white-color);
-    background-color: var(--blue-color);
-    border-radius: 5px;
+.book__add__pop-up .success{
+    display: none;
+    width: 40vw;
+    height: 40vh;
+    background: var(--white-color);
+    text-align: center;
 }
-
-.footer .cancel{
-    color: var(--text-color);
-    background-color: var(--white-color);
-    border: none;
-    font-size: 2em;
-    margin-top: 0.3em;
-}
-
