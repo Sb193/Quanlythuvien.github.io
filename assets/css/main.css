@@ -194,7 +194,7 @@
 }
 .header__search {
     width: 60%;
-    margin: auto -3em auto auto;
+    margin: auto 3em auto auto;
 }
 
 .search-icon {
