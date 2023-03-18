@@ -17,8 +17,9 @@
 }
 
 .category__list {
+    position: absolute;
+    top: 6.1em;
     padding: 0;
-    padding-left: 2em;
     list-style: none;
     font-size: 1.8em;
     font-weight: 700;
@@ -27,7 +28,15 @@
 }
 
 .category__item {
-    margin-bottom: 1em;
+    display: block;
+    height: 2.9em;
+    padding: 0.6em 2em 0.4em;
+}
+
+.category__item:hover{
+    box-shadow: 1px 2px 3px var(--border-color);
+    border-radius: 10px;
+    background-color: #f6f8fc;
 }
 
 

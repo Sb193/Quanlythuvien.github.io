@@ -56,7 +56,7 @@
 }
 
 .function{
-    animation: rotateMenu 400ms ease-in-out forwards;
+    animation: rotateMenu 250ms ease-in-out forwards;
     transform-origin: top center;
 }
     
@@ -64,9 +64,9 @@
     0% {
         transform: rotateX(-90deg);
     }
-    70% {
+    /* 70% {
         transform: rotateX(20deg);
-    }
+    } */
     100% {
         transform: rotateX(0deg);
     }
