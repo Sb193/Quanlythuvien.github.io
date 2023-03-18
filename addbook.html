@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm sách</title>
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/header_menu.css">
+    <link rel="stylesheet" href="./assets/css/addbook.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header" style="height: 60px;">
+            <div class="grid">
+                
+                <!-- Header with search -->
+                <div class="header-with-search" style="align-items: center; justify-content: flex-start;">
+                    <div class="header__logo">
+                        <!-- <img src="./assets/img/logo.png" alt="" class="header__logo-img"> -->
+                        <h1 class="header__logo-title" style="padding-left: 20px; padding-bottom: 20px;">THƯ VIỆN TRƯỜNG THPT PHÚ BÌNH</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal layout -->
+    <div class="modal">
+        <div class="modal__overlay">
+            
+        </div>
+        <div class="modal__body">
+            
+            
+            <!-- Add a book form -->
+            <div class="book__add">
+                <div class="header">
+                    <h3>Thêm sách</h3>
+                </div>
+                <div class="container">
+                    <ul>
+                        <li class="item">
+                            <p class="item__text">Tên sách</p>
+                            <input type="text" class="search-box">
+                        </li>
+                        <li class="item">
+                            <p class="item__text">Tác giả</p>
+                            <input type="text" class="search-box">
+                        </li>
+                        <li class="item">
+                            <p class="item__text">Thể loại</p>
+                            <input type="text" class="search-box">
+                        </li>
+                        <li class="item">
+                            <p class="item__text">Năm xuất bản</p>
+                            <input type="text" class="search-box">
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <button class="btn cancel">Trở lại</button>
+                    <button class="btn submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
