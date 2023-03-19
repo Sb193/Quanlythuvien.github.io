@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./assets/css/addbook.css">
 </head>
 <body>
-    <div class="app">
+    <div class="wrapper">
         <div class="header" style="height: 60px;">
             <div class="grid">
                 
@@ -66,28 +66,32 @@
                     </ul>
                 </div>
                 <div class="footer">
-                    <button class="btn cancel">Trở lại</button>
-                    <button class="btn submit">Submit</button>
+                    <div>
+                        <button onclick="window.location.href='./index.html'" class="footer__btn cancel__button">Trở lại</button>
+                        <script src="./assets/js/addbook.js"></script>
+                    </div>
+                    <div>
+                        <button onclick="display()" class="footer__btn submit">Submit</button>
+                        <script src="./assets/js/addbook.js"></script>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!--Return submit pop-up-->
-    <!-- <div class="modal book__add__pop-up">
-        <div class="modal__overlay">
-
-        </div>
-        <div class="modal__body">
-            <div class="fail">
-
-            </div>
-            <div class="success">
-                <div>Thành công!</div>
-                <button>Xác nhận</button>
+    <div class="book__add__submit__pop-up">
+        <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <!-- <div class="fail"></div> -->
+                <div class="success">
+                    <div class="pop-up__item text">Thành công!</div>
+                    <button onclick="window.location.href='./index.html'" class="pop-up__item button">Quay lại</button>
+                </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 </body>
 </html>
