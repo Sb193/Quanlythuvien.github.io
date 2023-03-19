@@ -34,7 +34,7 @@
 .function .item{
     display: block;
     background-color: var(--white-color);
-    padding-top: 1em;
+    padding-top: 0.66em;
     height: 2.5em;
     text-align: center;
     font-family: var(--primary-font);
