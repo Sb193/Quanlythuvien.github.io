@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="./assets/css/addbook.css">
 </head>
 <body>
-    <script src="./assets/js/addbook.js"></script>
-    <div class="wrapper">
+    <div id="wrapper">
+        <script src="./assets/js/addbook.js"></script>
         <div class="header" style="height: 60px;">
             <div class="grid">
                 
@@ -31,62 +31,60 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Modal layout -->
-    <div class="modal">
-        <div class="modal__overlay">
-            
-        </div>
-        <div class="modal__body">
-            
-            
-            <!-- Add a book form -->
-            <div class="book__add">
-                <div class="header">
-                    <h3>Thêm sách</h3>
-                </div>
-                <div class="container">
-                    <ul>
-                        <li class="item">
-                            <p class="item__text">Tên sách</p>
-                            <input type="text" class="search-box">
-                        </li>
-                        <li class="item">
-                            <p class="item__text">Tác giả</p>
-                            <input type="text" class="search-box">
-                        </li>
-                        <li class="item">
-                            <p class="item__text">Thể loại</p>
-                            <input type="text" class="search-box">
-                        </li>
-                        <li class="item">
-                            <p class="item__text">Năm xuất bản</p>
-                            <input type="text" class="search-box">
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer">
-                    <input type="button" onclick="back_to_index()" value="Trở lại" class="footer__btn cancel__button">
-                    <input type="button" onclick="show()" class="footer__btn submit__button" value="Submit">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Return submit pop-up-->
-    <div id="book__add__submit__pop-up">
+        <!-- Modal layout -->
         <div class="modal">
-            <div class="modal__overlay"></div>
+            <div class="modal__overlay">
+                
+            </div>
             <div class="modal__body">
-                <!-- <div class="fail"></div> -->
-                <div class="success">
-                    <div class="pop-up__item text">Thành công!</div>
-                    <button onclick="window.location.href='./index.html'" class="pop-up__item button">Quay lại</button>
+                
+                
+                <!-- Add a book form -->
+                <div class="book__add">
+                    <div class="header">
+                        <h3>Thêm sách</h3>
+                    </div>
+                    <div class="container">
+                        <ul>
+                            <li class="item">
+                                <p class="item__text">Tên sách</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Tác giả</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Thể loại</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Năm xuất bản</p>
+                                <input type="text" class="search-box">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <input type="button" onclick="back_to_index()" value="Trở lại" class="footer__btn cancel__button">
+                        <input type="button" onclick="show()" class="footer__btn submit__button" value="Submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Return submit pop-up-->
+        <div id="book__add__submit__pop-up">
+            <div class="modal">
+                <div class="modal__overlay"></div>
+                <div class="modal__body">
+                    <!-- <div class="fail"></div> -->
+                    <div class="success">
+                        <div class="pop-up__item text">Thành công!</div>
+                        <button onclick="window.location.href='./index.html'" class="pop-up__item button">Quay lại</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>

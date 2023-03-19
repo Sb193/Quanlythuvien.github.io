@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/header_menu.css">
     <link rel="stylesheet" href="./assets/css/container.css">
+    <link rel="stylesheet" href="./assets/css/addbook.css">
 </head>
 <body>
+    <script src="./assets/js/addbook.js"></script>
     <div class="app">
         <div class="header">
             <div class="grid">
@@ -31,12 +33,12 @@
                         <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     </div>
 
-                    <a class="header__menu" >
+                    <a id="header__menu" >
                         <i class="fa-solid fa-bars menu_icon"></i>
                         <ul class="function">
                             <li class="substitute" style="height: 1em;"></li>
-                            <li class="item1 item">Thêm sách</li>
-                            <li class="item2 item">Thêm tác giả</li>
+                            <li class="item1 item"><input onclick="wrapper_show()" type="button" class="button" value="Thêm sách"></li>
+                            <li class="item2 item"><input type="button" class="button" value="Thêm tác giả"></li>
                         </ul>
                     </a>
                 </div>
@@ -331,13 +333,78 @@
                 
                 </div>
             </div>
+        <div class="footer"></div>
+    </div>  
+    <!--Thêm sách-->
+    <div id="wrapper">
+        <div class="header" style="height: 60px;">
+            <div class="grid">
+                
+                <!-- Header with search -->
+                <div class="header-with-search" style="align-items: center; justify-content: flex-start;">
+                    <div class="header__logo">
+                        <!-- <img src="./assets/img/logo.png" alt="" class="header__logo-img"> -->
+                        <h1 class="header__logo-title" style="padding-left: 20px; padding-bottom: 20px;">THƯ VIỆN TRƯỜNG THPT PHÚ BÌNH</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal layout -->
+        <div class="modal">
+            <div class="modal__overlay">
+                
+            </div>
+            <div class="modal__body">
+                
+                
+                <!-- Add a book form -->
+                <div class="book__add">
+                    <div class="header">
+                        <h3>Thêm sách</h3>
+                    </div>
+                    <div class="container">
+                        <ul>
+                            <li class="item">
+                                <p class="item__text">Tên sách</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Tác giả</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Thể loại</p>
+                                <input type="text" class="search-box">
+                            </li>
+                            <li class="item">
+                                <p class="item__text">Năm xuất bản</p>
+                                <input type="text" class="search-box">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <input type="button" onclick="back_to_index()" value="Trở lại" class="footer__btn cancel__button">
+                        <input type="button" onclick="show()" class="footer__btn submit__button" value="Submit">
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
-
+        <!--Return submit pop-up-->
+        <div id="book__add__submit__pop-up">
+            <div class="modal">
+                <div class="modal__overlay"></div>
+                <div class="modal__body">
+                    <!-- <div class="fail"></div> -->
+                    <div class="success">
+                        <div class="pop-up__item text">Thành công!</div>
+                        <button onclick="window.location.href='./index.html'" class="pop-up__item button">Quay lại</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    
+</div>
 </body>
 </html>
