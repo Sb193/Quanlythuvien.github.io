@@ -87,15 +87,6 @@
 #book__add__submit__pop-up{
     display: none;
 }
-/* return pop-up */
-/* .success{
-    display: block;
-    width: 400px;
-    height: 250px;
-    background: var(--white-color);
-} */
-
-
 
 .success{
     display: grid;
@@ -121,4 +112,8 @@
     margin: 0px auto 25px;
     border-radius: 25px;
     border: none;
+}
+
+.success .button:active{
+    background: rgba(0,108,818,0.9);
 }
