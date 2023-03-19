@@ -69,26 +69,35 @@
     background-color: rgb(0,0,0,0.04);
 }
 
-.footer .submit{
+.submit__button{
     border: none;
     border: 1px solid var(--border-color);
     background-color: var(--blue-color);
     color: var(--white-color);
 }
 
-.footer .submit:hover{
+.footer .submit__button:hover{
     box-shadow: 0 1px var(--border-color);
 }
 
-.footer .submit:active{
+.footer .submit__button:active{
     background-color: rgba(0,108,818,0.9);
 }
 
-.book__add__submit__pop-up{
+#book__add__submit__pop-up{
     display: none;
 }
+/* return pop-up */
+/* .success{
+    display: block;
+    width: 400px;
+    height: 250px;
+    background: var(--white-color);
+} */
 
-.book__add__submit__pop-up .success{
+
+
+.success{
     display: grid;
     width: 400px;
     height: 250px;
