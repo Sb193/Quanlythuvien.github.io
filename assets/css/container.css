@@ -211,4 +211,8 @@
     color: var(--text-color);
 }
 
+.icon-category {
+    margin-right: 0.5em;
+}
+
 
