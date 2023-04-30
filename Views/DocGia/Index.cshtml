@@ -1,0 +1,102 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.DocGia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý độc giả</h2>
+
+<div class="card shadow mb-4 ">
+
+    <div class=" form-row card-header m-0">
+        <h4 class="font-weight-bold text-primary col-sm-6 mt-1">Danh sách độc giả</h4>
+        <div class=" col-sm-6 text-right justify-content-center mt-2">
+            <i class="fa fa-plus text-primary"></i>
+            @Html.ActionLink("Thêm độc giả", "Create", "DocGia", null, new { @class = "font-weight-bold text-primary  text-decoration-none h5" })
+        </div>
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã độc giả</th>
+                        <th>Loại độc giả</th>
+                        <th>Tên độc giả</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời hạn</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã độc giả</th>
+                        <th>Loại độc giả</th>
+                        <th>Tên độc giả</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời hạn</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaDG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoaiDG1.name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.NgaySinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.Gioitinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.DiaChi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.Sdt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TheThuVien.ThoiHan)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MaDG }) |
+
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDG })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <!-- Page level plugins -->
+    @Scripts.Render("~/vendor/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/vendor/datatables/dataTables.bootstrap4.min.js")
+
+    <!-- Page level custom scripts -->
+    @Scripts.Render("~/js/demo/datatables-demo.js")
+}
+

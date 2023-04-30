@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.PhieuPhat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+
+<div class="card shadow mb-4">
+
+    <div class=" form-row card-header py-3 m-0">
+        <h4 class="m-0 font-weight-bold text-primary form-group col-sm-6">Danh sách phiếu phạt</h4>
+        <div class="form-group col-sm-6 text-right justify-content-center">
+            <i class="fa fa-plus text-primary"></i>
+            @Html.ActionLink("Tạo phiếu phạt", "Create", "PhieuPhat", null, new { @class = "m-0 font-weight-bold text-primary  text-decoration-none h5" })
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Lý do</th>
+                            <th>Mã nhân viên</th>
+                            <th>Trạng thái</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Lý do</th>
+                            <th>Mã nhân viên</th>
+                            <th>Trạng thái</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LyDo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhieuMuon.MaNV)
+                                </td>
+                                @if (item.PhieuMuon.TrangThai == 0)
+                                {
+                                    <td class="text-primary">
+                                        @Html.DisplayFor(modelItem => item.PhieuMuon.TrangThai1.name)
+                                    </td>
+                                }
+                                else if (item.PhieuMuon.TrangThai == 1)
+                                {
+                                    <td class="text-success">
+                                        @Html.DisplayFor(modelItem => item.PhieuMuon.TrangThai1.name)
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="text-danger">
+                                        @Html.DisplayFor(modelItem => item.PhieuMuon.TrangThai1.name)
+                                    </td>
+                                }
+                            <td>
+                                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaPP }) |
+                                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaPP }) |
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaPP })
+                            </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+     </div>

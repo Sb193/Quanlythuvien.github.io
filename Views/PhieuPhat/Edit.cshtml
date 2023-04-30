@@ -1,0 +1,53 @@
+﻿@model QuanLyThuVien.Models.PhieuPhat
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phiếu phạt</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal card shadow mg-4">
+
+        <div class="card-header bg-primary">
+            <h4 class="font-weight-bold text-white m-1">Sửa thông tin</h4>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaPP)
+
+    <div class="card-body">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaPP, "Mã phiếu phạt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaPP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaPP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LyDo, "Lý do", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LyDo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LyDo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center">
+            <div class="col-md-offset-2 col-md-5 text-right">
+                <input type="submit" value="Lưu" class="btn btn-primary pl-3 pr-3" />
+            </div>
+
+            <div class="col-md-offset-2 col-md-5 ">
+                @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-default h4 pl-3 pr-3" })
+            </div>
+        </div>
+
+    </div>
+    </div>
+}

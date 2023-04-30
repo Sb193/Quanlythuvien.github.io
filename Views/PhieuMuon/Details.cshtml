@@ -1,0 +1,186 @@
+﻿@model QuanLyThuVien.Models.PhieuMuon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết phiếu mượn</h2>
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <div class="card shadow">
+            <div class="card-header card-header bg-primary text-white font-weight-bold">
+                Thông tin phiếu mượn
+            </div>
+
+            <div class="card-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgayMuon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgayMuon)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgayTra)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgayTra)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LuaChon1.name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LuaChon1.name)
+                </dd>
+
+                <dt>
+                    Mã nhân viên
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhanVien.MaNV)
+                </dd>
+
+                <dt>
+                    Tên nhân viên
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhanVien.Nguoi.HoTen)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NhanVien.Chucvu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhanVien.Chucvu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TheThuVien.MaDG)
+                </dt>
+
+
+
+                <dd>
+                    @Html.DisplayFor(model => model.TheThuVien.MaDG)
+                </dd>
+
+                <dt>
+                    Tên độc giả
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TheThuVien.DocGia.Nguoi.HoTen)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TrangThai1.name)
+                </dt>
+
+                @if (Model.TrangThai == 0)
+                {
+                    <dd class="text-primary">
+                        @Html.DisplayFor(model => model.TrangThai1.name)
+                    </dd>
+                }
+                else if (Model.TrangThai == 1)
+                {
+                    <dd class="text-success">
+                        @Html.DisplayFor(model => model.TrangThai1.name)
+                    </dd>
+                }
+                else
+                {
+                    <dd class="text-danger">
+                        @Html.DisplayFor(model => model.TrangThai1.name)
+                    </dd>
+                }
+            </div>
+        </div>
+
+        @foreach (QuanLyThuVien.Models.ChiTietPhieuMuon ct in Model.ChiTietPhieuMuons)
+        {
+            <div class="card shadow mt-4">
+                <div class="card-header card-header bg-info text-white font-weight-bold">
+                    Mã chi tiết : @ct.MaCT
+
+                </div>
+
+                <div class="card-body">
+
+
+                    <dt>
+                        Mã sách
+                    </dt>
+
+                    <dd>
+                        @ct.Sach.MaSach
+                    </dd>
+
+                    <dt>
+                        Tên sách
+                    </dt>
+
+                    <dd>
+                        @ct.Sach.TenSach
+                    </dd>
+
+                    <dt>
+                        Số lượng mượn
+                    </dt>
+
+                    <dd>
+                        @ct.SoLuong
+                    </dd>
+                </div>
+            </div>
+
+
+        }
+
+        @foreach (QuanLyThuVien.Models.PhieuPhat ct in Model.PhieuPhats)
+        {
+            <div class="card mt-4">
+                <div class="card-header bg-danger text-white font-weight-bold">
+                    Mã phiếu phạt : @ct.MaPP
+
+                </div>
+
+                <div class="card-body">
+
+
+                    <dt>
+                        Nội dung
+                    </dt>
+
+                    <dd>
+                        @ct.LyDo
+                    </dd>
+
+                    
+                </div>
+            </div>
+
+
+        }
+
+    </dl>
+</div>
+<div class="form-group d-flex align-items-center">
+    <div class="col-md-offset-2 col-md-6 text-right">
+        @Html.ActionLink("Xác nhận", "Index", null, new { @class = "btn btn-primary mt-1 pl-3 pr-3" })
+        
+    </div>
+
+    <div class="col-md-offset-2 col-md-6 ">
+        @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-default h4 pl-3 pr-3 mt-2" })
+    </div>
+</div>

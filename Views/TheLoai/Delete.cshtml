@@ -1,0 +1,51 @@
+﻿@model QuanLyThuVien.Models.TheLoai
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý thể loại</h2>
+
+<div class="card">
+
+    <div class="card-header bg-danger">
+        <h4 class="font-weight-bold text-white m-1">Xóa thể loại</h4>
+    </div>
+
+    <div>
+
+        <dl class="dl-horizontal h5">
+            <dt class="ml-4 mt-3">
+                @Html.DisplayNameFor(model => model.TenTL)
+            </dt>
+
+            <dd class="ml-4 mt-1 h5">
+                @Html.DisplayFor(model => model.TenTL)
+            </dd>
+
+        </dl>
+        <hr />
+
+        <h4 class="text-danger text-center font-weight-bold">Thao tác sẽ xóa hết tất cả sách thuộc thể loại này. Bạn chắc chắn?</h4>
+
+        <hr />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+        <div class="form-group d-flex align-items-center">
+            <div class="col-md-offset-2 col-md-6 text-right">
+                <input type="submit" value="Xác nhận" class="btn btn-danger pl-3 pr-3" />
+            </div>
+
+            <div class="col-md-offset-2 col-md-6 ">
+                @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-default h4 pl-3 pr-3" })
+            </div>
+        </div>
+        }
+    </div>
+
+</div>

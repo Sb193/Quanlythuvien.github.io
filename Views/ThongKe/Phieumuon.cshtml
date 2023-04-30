@@ -1,0 +1,134 @@
+﻿@model QuanLyThuVien.Models.ThongKePhieuMuon
+@{
+    ViewBag.Title = "Phieumuon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="card shadow mb-4 ">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class=" form-row card-header py-3 m-0 bg-primary">
+            <h4 class="col-4 text-white font-weight-bold m-0">Thống kê phiếu mượn</h4>
+            <div class="col-8 d-flex align-item-center justify-content-center">
+                <h6 class="d-flex align-item-center pt-2 mr-2 ml-2 text-white">Từ </h6>
+                @Html.EditorFor(model => model.start, new { htmlAttributes = new { @class = "control-label col-4", @type = "datetime", @value = Model.start } })
+                <h6 class="d-flex align-item-center pt-2 mr-2 ml-2 text-white">Đến </h6>
+                @Html.EditorFor(model => model.end, new { htmlAttributes = new { @class = "control-label col-4", @type = "datetime", @value = Model.end } })
+                <input type="submit" value="Thống kê" class="btn btn-success ml-2" />
+            </div>
+        </div>
+    }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã phiếu mượn</th>
+                            <th>Mã nhân viên</th>
+                            <th>Mã độc giả</th>
+                            <th>Trạng thái</th>
+                            <th>Mượn đọc</th>
+                            <th>Ngày mượn</th>
+                            <th>Ngày trả</th>
+                            <th>Vi phạm</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Mã phiếu mượn</th>
+                            <th>Mã nhân viên</th>
+                            <th>Mã độc giả</th>
+                            <th>Trạng thái</th>
+                            <th>Mượn đọc</th>
+                            <th>Ngày mượn</th>
+                            <th>Ngày trả</th>
+                            <th>vi phạm</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+
+                        @foreach (var item in Model.phieuMuonCollection)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaPM)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaNV)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaDG)
+                                </td>
+                                @if (item.TrangThai == 0)
+                                {
+                                    <td class="text-primary">
+                                        @Html.DisplayFor(modelItem => item.TrangThai1.name)
+                                    </td>
+                                }
+                                else if (item.TrangThai == 1)
+                                {
+                                    <td class="text-success">
+                                        @Html.DisplayFor(modelItem => item.TrangThai1.name)
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="text-danger">
+                                        @Html.DisplayFor(modelItem => item.TrangThai1.name)
+                                    </td>
+                                }
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LuaChon1.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayMuon)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayTra)
+                                </td>
+                                @if (item.PhieuPhats.Count == 0)
+                                {
+                                    <td>
+                                        Không
+                                    </td>
+                                }
+                                else
+                                {
+
+                                    foreach (QuanLyThuVien.Models.PhieuPhat pp in item.PhieuPhats)
+                                    {
+                                        <td>
+                                            @pp.LyDo
+                                        </td>
+                                    }
+
+                                }
+                            </tr>
+                        }
+
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+@section Scripts {
+    <!-- Page level plugins -->
+    @Scripts.Render("~/vendor/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/vendor/datatables/dataTables.bootstrap4.min.js")
+
+    <!-- Page level custom scripts -->
+    @Scripts.Render("~/js/demo/datatables-demo.js")
+}

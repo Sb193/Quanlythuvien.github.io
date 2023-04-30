@@ -1,0 +1,118 @@
+﻿@model QuanLyThuVien.Models.ThongKeDocGia
+@{
+    ViewBag.Title = "Phieumuon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="card shadow mb-4 ">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class=" form-row card-header py-3 m-0 bg-primary rounded-top">
+            <h4 class="col-4 text-white font-weight-bold m-0">Thống kê độc giả</h4>
+            <div class="col-8 d-flex align-item-center justify-content-center">
+                <h6 class="d-flex align-item-center pt-2 mr-2 ml-2 text-white">Từ </h6>
+                @Html.EditorFor(model => model.start, new { htmlAttributes = new { @class = "control-label col-4", @type = "datetime", @value = Model.start } })
+                <h6 class="d-flex align-item-center pt-2 mr-2 ml-2 text-white">Đến </h6>
+                @Html.EditorFor(model => model.end, new { htmlAttributes = new { @class = "control-label col-4", @type = "datetime", @value = Model.end } })
+                <input type="submit" value="Thống kê" class="btn btn-success ml-2" />
+            </div>
+        </div>
+    }
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã độc giả</th>
+                        <th>Loại độc giả</th>
+                        <th>Tên độc giả</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời hạn</th>
+                        <th>Hiệu lực</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã độc giả</th>
+                        <th>Loại độc giả</th>
+                        <th>Tên độc giả</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời hạn</th>
+                        <th>Hiệu lực</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+
+
+                    @foreach (var item in Model.DocGiaCollection)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaDG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoaiDG1.name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.NgaySinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.Gioitinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.DiaChi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoi.Sdt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TheThuVien.ThoiHan)
+                            </td>
+                            @if (item.TheThuVien.ThoiHan < DateTime.Now)
+                            {
+                                <td class="text-danger">
+                                    Hết hiệu lực
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="text-success">
+                                    Còn hiệu lực
+                                </td>
+                            }
+                        </tr>
+                    }
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <!-- Page level plugins -->
+    @Scripts.Render("~/vendor/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/vendor/datatables/dataTables.bootstrap4.min.js")
+
+    <!-- Page level custom scripts -->
+    @Scripts.Render("~/js/demo/datatables-demo.js")
+}

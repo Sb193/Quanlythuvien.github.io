@@ -1,0 +1,93 @@
+﻿@model QuanLyThuVien.Models.PhieuMuon
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý mượn trả</h2>
+
+<div class="card shadow mb-4">
+
+    <div>
+        <div class="card-header bg-danger">
+            <h3 class="text-white m-1">Xoá phiếu mượn</h3>
+        </div>
+
+        <div class="card-body">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgayMuon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgayMuon)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgayTra)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgayTra)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LuaChon1.name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LuaChon1.name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NhanVien.Chucvu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhanVien.Chucvu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TheThuVien.MaDG)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TheThuVien.MaDG)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TrangThai1.name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TrangThai1.name)
+                </dd>
+
+            </dl>
+
+        </div>
+
+        <hr />
+        <h3 class="text-danger text-center">Thao tác này sẽ không thể hoàn tác!</h3>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-group d-flex align-items-center">
+                <div class="col-md-offset-2 col-md-6 text-right">
+                    <input type="submit" value="Xóa" class="btn btn-danger pl-3 pr-3" />
+                </div>
+
+                <div class="col-md-offset-2 col-md-6 ">
+                    @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-default h4 pl-3 pr-3" })
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.ChiTietPhieuMuon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    QuanLyThuVien.Models.PhieuMuon pm = Session["PhieuMuon"] as QuanLyThuVien.Models.PhieuMuon;
+}
+
+<h2>Quản lý mượn trả</h2>
+<div class="card shadow">
+    <div class="card-header card-header bg-primary text-white font-weight-bold">
+        Thông tin phiếu mượn
+    </div>
+
+    <div class="card-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Ngày Mượn
+            </dt>
+
+            <dd>
+                @pm.NgayMuon
+            </dd>
+
+            <dt>
+                Ngày trả
+            </dt>
+
+            <dd>
+                @pm.NgayTra
+            </dd>
+
+            <dt>
+                Lựa chọn
+            </dt>
+
+            <dd>
+                @pm.LuaChon1.name
+            </dd>
+
+            <dt>
+                Nhân viên
+            </dt>
+
+            <dd>
+                @pm.MaNV
+            </dd>
+
+            <dt>
+                Mã độc giả
+            </dt>
+
+            <dd>
+                @pm.MaDG
+            </dd>
+
+            <dt>
+                Trạng thái
+            </dt>
+
+            @if (pm.TrangThai == 0)
+            {
+                <dd class="text-primary">
+                    @pm.TrangThai1.name
+                </dd>
+            }
+            else if (pm.TrangThai == 1)
+            {
+                <dd class="text-success">
+                    @pm.TrangThai1.name
+                </dd>
+            }
+            else
+            {
+                <dd class="text-danger">
+                    @pm.TrangThai1.name
+                </dd>
+            }
+        </dl>
+    </div>
+</div>
+
+<hr />
+<h3>Chi tiết phiếu mượn</h3>
+<hr />
+
+@foreach (var item in Model)
+{
+   
+
+
+    <div class="card shadow mt-4">
+        <div class="card-header bg-success text-white">
+            Mã chi tiết: 
+            @item.MaCT
+        </div>
+
+        <div class="card-body">
+            <dl>
+                <dt>
+                    Mã sách
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => item.Sach.MaSach)
+                </dd>
+                <dt>
+                    Tên sách
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => item.Sach.TenSach)
+                </dd>
+                <dt>
+                    Số lượng mượn
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+
+}
+
+<div class="card shadow mt-4">
+    <div class="card-body d-flex justify-content-around">
+        @Html.ActionLink("Thêm chi tiết", "Create", new {id = pm.MaPM} ,new { @class = "btn btn-success" })
+        @Html.ActionLink("Hoàn thành phiếu", "Index","PhieuMuon",null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+
