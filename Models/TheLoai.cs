@@ -30,5 +30,6 @@ namespace QuanLyThuVien.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Saches { get; set; }
+        public string ErrMess { get; internal set; }
     }
 }

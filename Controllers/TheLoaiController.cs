@@ -130,6 +130,43 @@ namespace QuanLyThuVien.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TheLoai theLoai = db.TheLoais.Find(id);
+            var sachs = db.Saches.Where(x => x.MaTL == id).ToList();
+            List<ChiTietPhieuMuon> chiTietPhieuMuons = new List<ChiTietPhieuMuon> { };
+            foreach ( var sach in sachs )
+            {
+                var phieuMuons = db.PhieuMuons.Include(x => x.ChiTietPhieuMuons);
+                
+
+                foreach (PhieuMuon item in phieuMuons)
+                {
+                    foreach (ChiTietPhieuMuon itemct in item.ChiTietPhieuMuons)
+                    {
+
+                        if (itemct.MaSach == sach.MaSach)
+                        {
+                            chiTietPhieuMuons.Add(itemct);
+                        }
+                    }
+
+
+                }
+
+                
+
+            }
+            foreach (ChiTietPhieuMuon item in chiTietPhieuMuons)
+            {
+                db.ChiTietPhieuMuons.Remove(item);
+                db.SaveChanges();
+            }
+
+            sachs = db.Saches.Where(x => x.MaTL == id).ToList();
+            foreach (Sach sach in sachs)
+            {
+                db.Saches.Remove(sach);
+                db.SaveChanges();
+            }
+
             db.TheLoais.Remove(theLoai);
             db.SaveChanges();
             return RedirectToAction("Index");

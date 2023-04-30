@@ -71,7 +71,7 @@ namespace QuanLyThuVien.Controllers
             ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name");
             ViewBag.MaNV = new SelectList(db.NhanViens, "MaNV", "Chucvu");
             ViewBag.MaDG = new SelectList(db.TheThuViens, "MaDG", "MaDG");
-            ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name");
+            
             return View();
         }
 
@@ -93,20 +93,25 @@ namespace QuanLyThuVien.Controllers
                 }
             }
 
+            if (phieuMuon.LuaChon == 0)
+            {
+                phieuMuon.NgayMuon = DateTime.Now;
+                phieuMuon.NgayTra = DateTime.Now;
+            }
 
             if (the == null)
             {
                 //The thu vien khong ton tai
                 phieuMuon.ErMess = "Độc giả này không tồn tại";
-                ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
                 ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
+
                 return View(phieuMuon);
             }
             else if (sl >= (the.DocGia.LoaiDG * 2 + 2))
             {
                 //So luong cho moi cap do la 2 4 6 Trong TH nay qua so luong muon
                 phieuMuon.ErMess = "Độc giả này đã mượn tối đa sách " + sl.ToString();
-                ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
+                
                 ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                 return View(phieuMuon);
             }
@@ -114,7 +119,6 @@ namespace QuanLyThuVien.Controllers
             {
                 //The thu vien da het han
                 phieuMuon.ErMess = "Thẻ thư viện của độc giả này đã hết hạn";
-                ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
                 ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                 return View(phieuMuon);
             }
@@ -122,7 +126,6 @@ namespace QuanLyThuVien.Controllers
             {
                 //The thu vien khong du den ngay muon
                 phieuMuon.ErMess = "Thẻ thư viện này hết hạn trươc ngày trả";
-                ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
                 ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                 return View(phieuMuon);
             }
@@ -132,7 +135,6 @@ namespace QuanLyThuVien.Controllers
                 if (phieuMuon.NgayTra > DateTime.Now.AddDays(7))
                 {
                     phieuMuon.ErMess = "Độc giả Normal không thể mượn sách quá 7 ngày";
-                    ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
                     ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                     return View(phieuMuon);
                 }
@@ -143,7 +145,7 @@ namespace QuanLyThuVien.Controllers
                 if (phieuMuon.NgayTra > DateTime.Now.AddDays(14))
                 {
                     phieuMuon.ErMess = "Độc giả Premium không thể mượn sách quá 14 ngày";
-                    ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
+                    
                     ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                     return View(phieuMuon);
                 }
@@ -154,14 +156,21 @@ namespace QuanLyThuVien.Controllers
                 if (phieuMuon.NgayTra > DateTime.Now.AddDays(30))
                 {
                     phieuMuon.ErMess = "Độc giả Pro không thể mượn sách quá 30 ngày";
-                    ViewBag.TrangThai = new SelectList(db.TrangThais, "id", "name", phieuMuon.TrangThai);
+                    
                     ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                     return View(phieuMuon);
                 }
+            } 
+            
+            if (phieuMuon.NgayTra < phieuMuon.NgayMuon)
+            {
+                phieuMuon.ErMess = "Ngày mượn không thể trước ngày trả";
             }
 
+            
             if (ModelState.IsValid)
             {
+                phieuMuon.TrangThai = 0;
                 db.PhieuMuons.Add(phieuMuon);
                 db.SaveChanges();
 

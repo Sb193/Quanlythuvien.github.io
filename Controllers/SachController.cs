@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using QuanLyThuVien.Models;
 
 namespace QuanLyThuVien.Controllers
@@ -143,10 +144,35 @@ namespace QuanLyThuVien.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Sach sach = db.Saches.Find(id);
+            var phieuMuons = db.PhieuMuons.Include(x => x.ChiTietPhieuMuons);
+            List<ChiTietPhieuMuon> chiTietPhieuMuons = new List<ChiTietPhieuMuon> { };
+            
+            foreach (PhieuMuon item in phieuMuons)
+            {
+                foreach (ChiTietPhieuMuon itemct in item.ChiTietPhieuMuons)
+                {
+                    
+                    if (itemct.MaSach == id)
+                    {
+                        chiTietPhieuMuons.Add(itemct);
+                    }
+                }
+
+                
+            }
+            
+            foreach (ChiTietPhieuMuon item in chiTietPhieuMuons)
+            {
+                db.ChiTietPhieuMuons.Remove(item);
+                db.SaveChanges();
+            }
+
             db.Saches.Remove(sach);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
 
         protected override void Dispose(bool disposing)
         {

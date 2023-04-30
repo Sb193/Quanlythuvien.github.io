@@ -71,16 +71,11 @@
                             <td class="d-flex">
 
 
-                                @if (item.SoLuong > item.SoLuongTT)
-                                {
-                                    <div>Không có</div>
-                                }
-                                else
-                                {
-                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaSach })
-                                    <div>|</div>
+                                
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaSach }) |
+                                    
                                     @Html.ActionLink("Xóa", "Delete", new { id = item.MaSach })
-                                }
+                                
                             </td>
                         </tr>
                     }

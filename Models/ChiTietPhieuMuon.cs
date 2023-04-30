@@ -30,5 +30,6 @@ namespace QuanLyThuVien.Models
     
         public virtual PhieuMuon PhieuMuon { get; set; }
         public virtual Sach Sach { get; set; }
+        public string ErMess { get; internal set; }
     }
 }

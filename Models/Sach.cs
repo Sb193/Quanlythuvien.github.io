@@ -33,15 +33,13 @@ namespace QuanLyThuVien.Models
         [Required(ErrorMessage = "Vui lòng nhập thông tin")]
         public int SoLuong { get; set; }
         [DisplayName("Số lượng thực tế")]
-        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
+        
         public int SoLuongTT { get; set; }
         [DisplayName("Mã thể loại")]
-        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
         public int MaTL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuMuon> ChiTietPhieuMuons { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
         public virtual TheLoai TheLoai { get; set; }
         public string ErMes { get; internal set; }
     }

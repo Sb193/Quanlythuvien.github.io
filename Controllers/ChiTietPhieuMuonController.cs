@@ -103,7 +103,7 @@ namespace QuanLyThuVien.Controllers
             if (chiTietPhieuMuon.SoLuong > sl) {
                 //So luong muon nhieu hon so luong co
 
-                
+                chiTietPhieuMuon.ErMess = "Số lượng mượn nhiều hơn số lượng có (Hiện có "+ sl.ToString()+" )";
                 ViewBag.MaSach = new SelectList(db.Saches, "MaSach", "TenSach", chiTietPhieuMuon.MaSach);
                 return View(chiTietPhieuMuon);
             }
@@ -112,6 +112,7 @@ namespace QuanLyThuVien.Controllers
             if (solu + chiTietPhieuMuon.SoLuong > (dg.LoaiDG * 2 + 2))
             {
                 // So luong lon hon so luong dc muon
+                chiTietPhieuMuon.ErMess = "Số lượng mượn nhiều hơn số lượng được mượn (Hiện có thể mượn " + ((dg.LoaiDG * 2 + 2) - solu).ToString() + " )";
                 ViewBag.MaSach = new SelectList(db.Saches, "MaSach", "TenSach", chiTietPhieuMuon.MaSach);
                 return View(chiTietPhieuMuon);
             }
