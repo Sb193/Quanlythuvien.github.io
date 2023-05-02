@@ -20,12 +20,17 @@ namespace QuanLyThuVien.Controllers
         [HttpPost]
         public ActionResult Autherize(TaiKhoan account)
         {
+           
             using (ThuVienEntities db = new ThuVienEntities())
             {
+                
                 var userDetails = db.TaiKhoans.Where(x => x.TaiKhoan1 == account.TaiKhoan1 && x.MatKhau == account.MatKhau).FirstOrDefault();
                 if (userDetails == null)
                 {
-                    account.LoginErrorMessage = "Tài khoản hoặc mật khẩu không đúng";
+                    if (account.TaiKhoan1!= null && account.MatKhau != null) {
+                        account.LoginErrorMessage = "Tài khoản hoặc mật khẩu không đúng";
+                    }
+                    account.MatKhau = "";
                     return View("Index", account);
                 }
 
@@ -51,5 +56,11 @@ namespace QuanLyThuVien.Controllers
             }
         }
 
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
+
 }

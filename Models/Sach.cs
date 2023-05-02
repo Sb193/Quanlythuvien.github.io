@@ -36,6 +36,7 @@ namespace QuanLyThuVien.Models
         
         public int SoLuongTT { get; set; }
         [DisplayName("Mã thể loại")]
+        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
         public int MaTL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

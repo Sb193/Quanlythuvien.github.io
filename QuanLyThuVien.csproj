@@ -2166,6 +2166,7 @@
     <Content Include="Views\ThongKe\Sach.cshtml" />
     <Content Include="Views\ThongKe\Phieumuon.cshtml" />
     <Content Include="Views\ThongKe\Docgia.cshtml" />
+    <Content Include="Views\Login\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

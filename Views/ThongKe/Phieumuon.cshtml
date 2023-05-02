@@ -93,7 +93,7 @@
                                 </td>
                                 @if (item.PhieuPhats.Count == 0)
                                 {
-                                    <td>
+                                    <td class="text-success">
                                         Không
                                     </td>
                                 }
@@ -102,7 +102,7 @@
 
                                     foreach (QuanLyThuVien.Models.PhieuPhat pp in item.PhieuPhats)
                                     {
-                                        <td>
+                                        <td class="text-danger">
                                             @pp.LyDo
                                         </td>
                                     }

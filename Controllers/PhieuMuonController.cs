@@ -83,6 +83,7 @@ namespace QuanLyThuVien.Controllers
         public ActionResult Create([Bind(Include = "MaPM,MaDG,MaNV,NgayMuon,NgayTra,LuaChon,TrangThai")] PhieuMuon phieuMuon)
         {
             TheThuVien the = db.TheThuViens.Where(x => x.MaDG == phieuMuon.MaDG).Include(x => x.DocGia).FirstOrDefault();
+            NhanVien nhanVien = db.NhanViens.Where(x => x.MaNV == phieuMuon.MaNV).FirstOrDefault();
             List<PhieuMuon> dangmuon = db.PhieuMuons.Where(x => x.TrangThai == 0 && x.MaDG == phieuMuon.MaDG).Include(x => x.ChiTietPhieuMuons).ToList();
             int sl = 0;
             foreach (PhieuMuon pm in dangmuon)
@@ -107,10 +108,18 @@ namespace QuanLyThuVien.Controllers
 
                 return View(phieuMuon);
             }
+            if (nhanVien == null)
+            {
+                //Nhan vien khong ton tai
+                phieuMuon.ErMess = "Nhân viên này không tồn tại";
+                ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
+
+                return View(phieuMuon);
+            }
             else if (sl >= (the.DocGia.LoaiDG * 2 + 2))
             {
                 //So luong cho moi cap do la 2 4 6 Trong TH nay qua so luong muon
-                phieuMuon.ErMess = "Độc giả này đã mượn tối đa sách " + sl.ToString();
+                phieuMuon.ErMess = "Độc giả này đã mượn tối đa sách (Hiện tại đang mượn " + sl.ToString() +" cuốn)";
                 
                 ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                 return View(phieuMuon);
@@ -134,7 +143,7 @@ namespace QuanLyThuVien.Controllers
                 //Normal khong muon qua 7 ngay
                 if (phieuMuon.NgayTra > DateTime.Now.AddDays(7))
                 {
-                    phieuMuon.ErMess = "Độc giả Normal không thể mượn sách quá 7 ngày";
+                    phieuMuon.ErMess = "Độc giả Học sinh không thể mượn sách quá 7 ngày";
                     ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                     return View(phieuMuon);
                 }
@@ -144,7 +153,7 @@ namespace QuanLyThuVien.Controllers
                 //Premium khong muon qua 14 ngay
                 if (phieuMuon.NgayTra > DateTime.Now.AddDays(14))
                 {
-                    phieuMuon.ErMess = "Độc giả Premium không thể mượn sách quá 14 ngày";
+                    phieuMuon.ErMess = "Độc giả Giáo viên không thể mượn sách quá 14 ngày";
                     
                     ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
                     return View(phieuMuon);
@@ -165,9 +174,24 @@ namespace QuanLyThuVien.Controllers
             if (phieuMuon.NgayTra < phieuMuon.NgayMuon)
             {
                 phieuMuon.ErMess = "Ngày mượn không thể trước ngày trả";
+                ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
+                return View(phieuMuon);
             }
 
-            
+            if (phieuMuon.NgayMuon < DateTime.Now.AddDays(-30))
+            {
+                phieuMuon.ErMess = "Không thể tạo phiếu mượn cách quá 1 tháng";
+                ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
+                return View(phieuMuon);
+            }
+
+            if (phieuMuon.NgayMuon > DateTime.Now.AddDays(1))
+            {
+                phieuMuon.ErMess = "Không thể tạo phiếu mượn trước quá 1 ngày";
+                ViewBag.LuaChon = new SelectList(db.LuaChons, "id", "name", phieuMuon.LuaChon);
+                return View(phieuMuon);
+            }
+
             if (ModelState.IsValid)
             {
                 phieuMuon.TrangThai = 0;

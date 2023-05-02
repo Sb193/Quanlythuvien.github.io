@@ -17,11 +17,11 @@ namespace QuanLyThuVien.Models
     public partial class TaiKhoan
     {
         [DisplayName("Tài khoản")]
-        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
+        [Required(ErrorMessage = "Vui lòng nhập tài khoản")]
         [MinLength(6,ErrorMessage ="Tài khoản tối thiểu 6 kí tự")]
         public string TaiKhoan1 { get; set; }
         [DisplayName("Mật khẩu")]
-        [Required(ErrorMessage = "Vui lòng nhập thông tin")]
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
         [MinLength(6, ErrorMessage = "Mật khẩu tối thiểu 6 kí tự")]
         
         public string MatKhau { get; set; }
