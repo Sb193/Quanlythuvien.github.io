@@ -68,14 +68,13 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.SoLuongTT)
                             </td>
-                            <td class="d-flex">
+                            <td>
 
 
-                                
-                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaSach }) |
-                                    
-                                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaSach })
-                                
+
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MaSach }) |
+
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaSach })
                             </td>
                         </tr>
                     }

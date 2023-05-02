@@ -94,10 +94,14 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Chi tiết", "Details", "PhieuMuon", new { id = item.MaPM }, null) |
-                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaPM }) |
+
                                 @if (item.TrangThai != 1)
                                 {
                                     @Html.ActionLink("Cập nhật", "Update", new { id = item.MaPM })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaPM })
                                 }
                             </td>
                         </tr>
